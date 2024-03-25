@@ -33,7 +33,9 @@ class EncodeViewController: UIViewController {
         morseLabel.text = MorseEncoder.encode(string: sender.text!)
     }
     @IBAction func encodeButtonPressed(_ sender: UIButton) {
+        sender.isEnabled = false
         readMorseCode(morseCode: morseLabel.text!)
+        sender.isEnabled = true
     }
     func readMorseCode(morseCode: String) {
         morseCodeIndex = 0
