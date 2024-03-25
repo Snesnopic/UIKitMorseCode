@@ -8,6 +8,19 @@
 import UIKit
 
 class EncodeViewController: UIViewController {
+    let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    
+    static let timeUnit = 0.1
+    
+    let dotDuration: TimeInterval = 1 * timeUnit // Duration for a dot
+    let dashDuration: TimeInterval = 3 * timeUnit // Duration for a dash
+    let sameCharacterSeparatorDelay: TimeInterval = 1 * timeUnit // Delay between same characters
+    let characterSeparatorDelay: TimeInterval = 3 * timeUnit // Delay between different characters
+    let wordSeparatorDelay: TimeInterval = 7 * timeUnit // Delay for word separator
+    
+    var vibrationTimer: Timer?
+    var morseCodeIndex = 0
+    var morseCodeString = ""
     @IBOutlet var morseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +30,62 @@ class EncodeViewController: UIViewController {
     }
     
     @IBAction func textLabelEditingChanged(_ sender: UITextField) {
-        morseLabel.text = sender.text
+        morseLabel.text = MorseEncoder.encode(string: sender.text!)
+    }
+    @IBAction func encodeButtonPressed(_ sender: UIButton) {
+        readMorseCode(morseCode: morseLabel.text!)
+    }
+    func readMorseCode(morseCode: String) {
+        morseCodeIndex = 0
+        morseCodeString = morseCode
+        triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: characterSeparatorDelay, wordSeparatorDelay: wordSeparatorDelay)
+    }
+    
+    // Function to trigger vibrations based on Morse code
+    func triggerNextVibration(dotDuration: TimeInterval, dashDuration: TimeInterval, interCharacterDelay: TimeInterval, wordSeparatorDelay: TimeInterval) {
+        guard morseCodeIndex < morseCodeString.count else {
+            // End of Morse code string
+            return
+        }
+        
+        let character = morseCodeString.charAt(morseCodeIndex)
+        let nextCharacter = morseCodeString.charAt(morseCodeIndex + 1)
+        morseCodeIndex += 1
+        
+        switch character {
+        case ".":
+            feedbackGenerator.impactOccurred()
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dotDuration, repeats: false) { _ in
+                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: interCharacterDelay, wordSeparatorDelay: wordSeparatorDelay)
+            }
+        case "-":
+            for _ in 1...3 {
+                feedbackGenerator.impactOccurred()
+                usleep(UInt32(dashDuration) * 1000)
+            }
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: interCharacterDelay, repeats: false) { _ in
+                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: interCharacterDelay, wordSeparatorDelay: wordSeparatorDelay)
+            }
+            
+            
+        case "/":
+            feedbackGenerator.impactOccurred()
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: wordSeparatorDelay, repeats: false) { _ in
+                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: character == nextCharacter ? self.sameCharacterSeparatorDelay : self.characterSeparatorDelay, wordSeparatorDelay: wordSeparatorDelay)
+            }
+        default:
+            // Ignore unrecognized characters
+            break
+        }
+    }
+    
+    // Function to stop reading Morse code
+    func stopReadingMorseCode() {
+        vibrationTimer?.invalidate()
+    }
+    
+    @IBAction func stopReading(_ sender: UIButton) {
+        stopReadingMorseCode()
     }
 }
 

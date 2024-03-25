@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="kPd-gt-vIp">
-                                <rect key="frame" x="100" y="327" width="190" height="190"/>
+                                <rect key="frame" x="100" y="377" width="190" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kPd-gt-vIp" secondAttribute="height" multiplier="1:1" id="zYT-w7-MMd"/>
                                 </constraints>
@@ -58,6 +58,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Button">
                                     <backgroundConfiguration key="background" cornerRadius="1000"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="encodeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CHq-wh-K7v"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,7 +71,7 @@
                             <constraint firstItem="zcH-wR-YqN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="FY9-KQ-eHr"/>
                             <constraint firstItem="JzY-Wc-uQw" firstAttribute="top" secondItem="zcH-wR-YqN" secondAttribute="bottom" constant="8" id="JeE-HQ-imH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kPd-gt-vIp" secondAttribute="trailing" constant="100" id="SCw-b2-uxv"/>
-                            <constraint firstItem="kPd-gt-vIp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cbO-bS-AvN"/>
+                            <constraint firstItem="kPd-gt-vIp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="50" id="cbO-bS-AvN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zcH-wR-YqN" secondAttribute="trailing" constant="16" id="exN-ND-EME"/>
                             <constraint firstItem="JzY-Wc-uQw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tFj-Yk-XV4"/>
                             <constraint firstItem="zcH-wR-YqN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yPh-5E-cLO"/>
