@@ -14,34 +14,34 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I95-cn-t2I" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encode" image="text.badge.plus" catalog="system" id="zaa-P8-ph3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Zo-9V-QuO">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="6Zo-9V-QuO">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LlN-2G-gZ9"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gom-Ah-dRg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKM-J9-PLP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1521.5384615384614" y="-15.639810426540283"/>
         </scene>
-        <!--Encode-->
+        <!--Encode View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Encode" id="BYZ-38-t0r" customClass="EncodeViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EncodeViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sentence to encode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcH-wR-YqN">
-                                <rect key="frame" x="16" y="191" width="358" height="34"/>
+                                <rect key="frame" x="16" y="243" width="358" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-Wc-uQw">
-                                <rect key="frame" x="174" y="233" width="42" height="21"/>
+                                <rect key="frame" x="174" y="285" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,13 +71,13 @@
                             <constraint firstItem="zcH-wR-YqN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yPh-5E-cLO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xyQ-xD-T7m"/>
+                    <navigationItem key="navigationItem" customizationIdentifier="" id="xyQ-xD-T7m"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-592.30769230769226" y="-15.639810426540283"/>
         </scene>
-        <!--Voice-->
+        <!--Listen View Controller-->
         <scene sceneID="qXx-M8-olI">
             <objects>
                 <viewController id="aZa-pW-nra" customClass="ListenViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,27 +87,27 @@
                         <viewLayoutGuide key="safeArea" id="Jk8-eX-H4X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Voice" image="waveform" catalog="system" id="PiI-RE-6FX"/>
+                    <navigationItem key="navigationItem" id="DcD-i9-V6d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlq-7i-21Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932.3076923076922" y="-15.639810426540283"/>
+            <point key="canvasLocation" x="3790.7692307692305" y="-15.639810426540283"/>
         </scene>
-        <!--Quick Translate-->
+        <!--Quick Translate View Controller-->
         <scene sceneID="pOy-hO-Sdu">
             <objects>
-                <viewController title="Quick Translate" id="cb1-mP-Rg4" customClass="QuickTranslateViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cb1-mP-Rg4" customClass="QuickTranslateViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2vJ-xI-3kA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="lzJ-JA-eDP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Quick Translate" image="list.bullet" catalog="system" id="jwd-mQ-FQy"/>
+                    <navigationItem key="navigationItem" id="xSb-oZ-E0k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-PN-GS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629.23076923076917" y="-15.639810426540283"/>
+            <point key="canvasLocation" x="1558.4615384615383" y="-15.639810426540283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OIW-wX-WJ3">
@@ -120,13 +120,51 @@
                     </tabBar>
                     <connections>
                         <segue destination="I95-cn-t2I" kind="relationship" relationship="viewControllers" id="osj-u8-nT3"/>
-                        <segue destination="cb1-mP-Rg4" kind="relationship" relationship="viewControllers" id="kmr-cW-csu"/>
-                        <segue destination="aZa-pW-nra" kind="relationship" relationship="viewControllers" id="cuE-VX-89g"/>
+                        <segue destination="RYD-3C-3NN" kind="relationship" relationship="viewControllers" id="kmr-cW-csu"/>
+                        <segue destination="IpW-Aw-Qhr" kind="relationship" relationship="viewControllers" id="cuE-VX-89g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAE-aZ-tQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="-799"/>
+            <point key="canvasLocation" x="629" y="-1099"/>
+        </scene>
+        <!--Quick Translate-->
+        <scene sceneID="ZB3-He-Add">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RYD-3C-3NN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Quick Translate" image="list.bullet" catalog="system" id="jwd-mQ-FQy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dvf-iZ-dgu">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cb1-mP-Rg4" kind="relationship" relationship="rootViewController" id="8Zs-ue-oO6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FV9-Vq-E4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629.23076923076917" y="-15.639810426540283"/>
+        </scene>
+        <!--Voice-->
+        <scene sceneID="s6z-3O-M1b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IpW-Aw-Qhr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Voice" image="waveform" catalog="system" id="PiI-RE-6FX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Zob-XZ-FDu">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aZa-pW-nra" kind="relationship" relationship="rootViewController" id="QLL-jW-sdA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUG-Sj-hM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861.5384615384614" y="-15.639810426540283"/>
         </scene>
     </scenes>
     <resources>
