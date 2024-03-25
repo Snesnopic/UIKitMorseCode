@@ -38,7 +38,7 @@
         <!--Voice-->
         <scene sceneID="qXx-M8-olI">
             <objects>
-                <viewController id="aZa-pW-nra" sceneMemberID="viewController">
+                <viewController id="aZa-pW-nra" customClass="ListenViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eRc-MG-bLR">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
         <!--Quick Translate-->
         <scene sceneID="pOy-hO-Sdu">
             <objects>
-                <viewController title="Quick Translate" id="cb1-mP-Rg4" sceneMemberID="viewController">
+                <viewController title="Quick Translate" id="cb1-mP-Rg4" customClass="QuickTranslateViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2vJ-xI-3kA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

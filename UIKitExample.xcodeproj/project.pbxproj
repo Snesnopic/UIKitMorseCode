@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D884CED2BB183DB00ABFF6E /* QuickTranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D884CEC2BB183DB00ABFF6E /* QuickTranslateViewController.swift */; };
+		9D884CEF2BB183FD00ABFF6E /* ListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D884CEE2BB183FD00ABFF6E /* ListenViewController.swift */; };
 		9DD5AC6D2BAD77370064B9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */; };
 		9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */; };
 		9DD5AC712BAD77370064B9FC /* EncodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC702BAD77370064B9FC /* EncodeViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D884CEC2BB183DB00ABFF6E /* QuickTranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTranslateViewController.swift; sourceTree = "<group>"; };
+		9D884CEE2BB183FD00ABFF6E /* ListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenViewController.swift; sourceTree = "<group>"; };
 		9DD5AC692BAD77370064B9FC /* UIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */,
 				9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */,
 				9DD5AC702BAD77370064B9FC /* EncodeViewController.swift */,
+				9D884CEC2BB183DB00ABFF6E /* QuickTranslateViewController.swift */,
+				9D884CEE2BB183FD00ABFF6E /* ListenViewController.swift */,
 				9DD5AC722BAD77370064B9FC /* Main.storyboard */,
 				9DD5AC752BAD77380064B9FC /* Assets.xcassets */,
 				9DD5AC772BAD77380064B9FC /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				9DD5AC712BAD77370064B9FC /* EncodeViewController.swift in Sources */,
 				9DD5AC6D2BAD77370064B9FC /* AppDelegate.swift in Sources */,
 				9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */,
+				9D884CEF2BB183FD00ABFF6E /* ListenViewController.swift in Sources */,
+				9D884CED2BB183DB00ABFF6E /* QuickTranslateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
