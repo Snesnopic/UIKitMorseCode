@@ -14,7 +14,7 @@ class EncodeViewController: UIViewController {
     var engine: CHHapticEngine?
     
     // configurable time unit, will be changeable later with settings
-    static let timeUnit = 0.1
+    static let timeUnit = SettingsBundleHelper.getSliderPreference()
     
     let dotDuration: TimeInterval = 1 * timeUnit // Duration for a dot
     let dashDuration: TimeInterval = 3 * timeUnit // Duration for a dash
