@@ -34,6 +34,10 @@ class EncodeViewController: UIViewController {
         createEngine()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       self.view.endEditing(true)
+    }
+    
     @IBAction func textLabelEditingChanged(_ sender: UITextField) {
         morseLabel.text = MorseEncoder.encode(string: sender.text!)
     }
