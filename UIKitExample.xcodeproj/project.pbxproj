@@ -12,6 +12,7 @@
 		9D884CEF2BB183FD00ABFF6E /* ListenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D884CEE2BB183FD00ABFF6E /* ListenViewController.swift */; };
 		9D91CC062BB2C03B00D5F43D /* dot.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 9D91CC042BB2C03B00D5F43D /* dot.ahap */; };
 		9D91CC072BB2C03B00D5F43D /* dash.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 9D91CC052BB2C03B00D5F43D /* dash.ahap */; };
+		9D91CC092BB2CB0400D5F43D /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91CC082BB2CB0400D5F43D /* Sentence.swift */; };
 		9DD5AC6D2BAD77370064B9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */; };
 		9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */; };
 		9DD5AC712BAD77370064B9FC /* EncodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC702BAD77370064B9FC /* EncodeViewController.swift */; };
@@ -26,6 +27,7 @@
 		9D884CEE2BB183FD00ABFF6E /* ListenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenViewController.swift; sourceTree = "<group>"; };
 		9D91CC042BB2C03B00D5F43D /* dot.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dot.ahap; sourceTree = "<group>"; };
 		9D91CC052BB2C03B00D5F43D /* dash.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dash.ahap; sourceTree = "<group>"; };
+		9D91CC082BB2CB0400D5F43D /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		9DD5AC692BAD77370064B9FC /* UIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 				9D91CC042BB2C03B00D5F43D /* dot.ahap */,
 			);
 			path = AHAP;
+			sourceTree = "<group>";
+		};
+		9D91CC0A2BB2CB0A00D5F43D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D91CC082BB2CB0400D5F43D /* Sentence.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9DD5AC602BAD77370064B9FC = {
@@ -86,6 +96,7 @@
 				9DD5AC752BAD77380064B9FC /* Assets.xcassets */,
 				9DD5AC772BAD77380064B9FC /* LaunchScreen.storyboard */,
 				9DD5AC7A2BAD77380064B9FC /* Info.plist */,
+				9D91CC0A2BB2CB0A00D5F43D /* Models */,
 			);
 			path = UIKitExample;
 			sourceTree = "<group>";
@@ -168,6 +179,7 @@
 				9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */,
 				9D2556C22BB1A4CC0019CA32 /* MorseEncoder.swift in Sources */,
 				9D884CEF2BB183FD00ABFF6E /* ListenViewController.swift in Sources */,
+				9D91CC092BB2CB0400D5F43D /* Sentence.swift in Sources */,
 				9D884CED2BB183DB00ABFF6E /* QuickTranslateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
