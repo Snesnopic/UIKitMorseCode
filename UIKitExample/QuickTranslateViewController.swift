@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuickTranslateViewController: UIViewController {
+class QuickTranslateViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

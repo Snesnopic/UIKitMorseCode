@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j80-Qb-DhH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -103,20 +104,30 @@
             <point key="canvasLocation" x="3790.7692307692305" y="-15.639810426540283"/>
         </scene>
         <!--Quick Translate View Controller-->
-        <scene sceneID="pOy-hO-Sdu">
+        <scene sceneID="TFc-lK-sea">
             <objects>
-                <viewController id="cb1-mP-Rg4" customClass="QuickTranslateViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2vJ-xI-3kA">
+                <collectionViewController id="0S7-IR-wHz" customClass="QuickTranslateViewController" customModule="UIKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4CP-Et-R47">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="lzJ-JA-eDP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="xSb-oZ-E0k"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V4Y-PN-GS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JKm-bO-WO9">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="0S7-IR-wHz" id="fZh-SW-yrY"/>
+                            <outlet property="delegate" destination="0S7-IR-wHz" id="8LS-Ue-scd"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Y7E-LH-yGH"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZG-K9-VKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558.4615384615383" y="-15.639810426540283"/>
+            <point key="canvasLocation" x="1511" y="-16"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OIW-wX-WJ3">
@@ -149,7 +160,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cb1-mP-Rg4" kind="relationship" relationship="rootViewController" id="8Zs-ue-oO6"/>
+                        <segue destination="0S7-IR-wHz" kind="relationship" relationship="rootViewController" id="Mq0-DE-PRh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FV9-Vq-E4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
