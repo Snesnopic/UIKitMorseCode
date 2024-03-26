@@ -13,6 +13,7 @@ class EncodeViewController: UIViewController {
     // A haptic engine manages the connection to the haptic server.
     var engine: CHHapticEngine?
     
+    // configurable time unit, will be changeable later with settings
     static let timeUnit = 0.1
     
     let dotDuration: TimeInterval = 1 * timeUnit // Duration for a dot
@@ -22,6 +23,7 @@ class EncodeViewController: UIViewController {
     let wordSeparatorDelay: TimeInterval = 7 * timeUnit // Delay for word separator
     
     var vibrationTimer: Timer?
+    
     var morseCodeIndex = 0
     var morseCodeString = ""
     
@@ -34,6 +36,7 @@ class EncodeViewController: UIViewController {
         createEngine()
     }
     
+    // if you touch somewhere else, close the keyboard and remove focus from textfield
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        self.view.endEditing(true)
     }
@@ -41,11 +44,13 @@ class EncodeViewController: UIViewController {
     @IBAction func textLabelEditingChanged(_ sender: UITextField) {
         morseLabel.text = MorseEncoder.encode(string: sender.text!)
     }
+    
     @IBAction func encodeButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
-        readMorseCode(morseCode: morseLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+        readMorseCode(morseCode: morseLabel.text!)
         sender.isEnabled = true
     }
+    
     func readMorseCode(morseCode: String) {
         morseCodeIndex = 0
         morseCodeString = morseCode

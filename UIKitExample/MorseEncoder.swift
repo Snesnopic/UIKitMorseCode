@@ -8,7 +8,7 @@
 import Foundation
 
 class MorseEncoder {
-    
+    // map of all characters to morse
     private static let AlphaNumToMorse: [String:String] = [
         "A": ".-",
         "B": "-...",
@@ -75,9 +75,10 @@ class MorseEncoder {
         " ": "/",
     ]
     
+    // encode string to morse (removing trailing and leading whitespace)
     public static func encode(string: String) -> String {
         var morse: String = ""
-        string.forEach { char in
+        string.trimmingCharacters(in: .whitespacesAndNewlines).forEach { char in
             if char.isASCII {
                 morse.append(AlphaNumToMorse[char.description]!)
             }
@@ -88,6 +89,7 @@ class MorseEncoder {
 
 
 extension String {
+    // helper function to get single char from string
     func charAt(_ i: Int) -> Character {
      return Array(self)[i]
     } 
