@@ -40,11 +40,11 @@ class EncodeViewController: UIViewController {
     func readMorseCode(morseCode: String) {
         morseCodeIndex = 0
         morseCodeString = morseCode
-        triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: characterSeparatorDelay, wordSeparatorDelay: wordSeparatorDelay)
+        triggerNextVibration()
     }
     
     // Function to trigger vibrations based on Morse code
-    func triggerNextVibration(dotDuration: TimeInterval, dashDuration: TimeInterval, interCharacterDelay: TimeInterval, wordSeparatorDelay: TimeInterval) {
+    func triggerNextVibration() {
         guard morseCodeIndex < morseCodeString.count else {
             // End of Morse code string
             return
@@ -63,24 +63,24 @@ class EncodeViewController: UIViewController {
         
         switch character {
         case ".":
-            feedbackGenerator.impactOccurred()
+            feedbackGenerator.impactOccurred(intensity: 0.7)
             vibrationTimer = Timer.scheduledTimer(withTimeInterval: dotDuration, repeats: false) { _ in
-                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: interCharacterDelay, wordSeparatorDelay: wordSeparatorDelay)
+                self.triggerNextVibration()
             }
         case "-":
             for _ in 1...3 {
-                feedbackGenerator.impactOccurred()
+                feedbackGenerator.impactOccurred(intensity: 1.0)
                 usleep(UInt32(dashDuration) * 1000)
             }
-            vibrationTimer = Timer.scheduledTimer(withTimeInterval: interCharacterDelay, repeats: false) { _ in
-                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: interCharacterDelay, wordSeparatorDelay: wordSeparatorDelay)
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dashDuration, repeats: false) { _ in
+                self.triggerNextVibration()
             }
             
             
         case "/":
             feedbackGenerator.impactOccurred()
             vibrationTimer = Timer.scheduledTimer(withTimeInterval: wordSeparatorDelay, repeats: false) { _ in
-                self.triggerNextVibration(dotDuration: dotDuration, dashDuration: dashDuration, interCharacterDelay: character == nextCharacter ? self.sameCharacterSeparatorDelay : self.characterSeparatorDelay, wordSeparatorDelay: wordSeparatorDelay)
+                self.triggerNextVibration()
             }
         default:
             // Ignore unrecognized characters
