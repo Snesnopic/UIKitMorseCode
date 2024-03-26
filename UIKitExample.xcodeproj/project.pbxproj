@@ -13,6 +13,8 @@
 		9D91CC062BB2C03B00D5F43D /* dot.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 9D91CC042BB2C03B00D5F43D /* dot.ahap */; };
 		9D91CC072BB2C03B00D5F43D /* dash.ahap in Resources */ = {isa = PBXBuildFile; fileRef = 9D91CC052BB2C03B00D5F43D /* dash.ahap */; };
 		9D91CC092BB2CB0400D5F43D /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91CC082BB2CB0400D5F43D /* Sentence.swift */; };
+		9D91CC0C2BB2D80500D5F43D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D91CC0B2BB2D80500D5F43D /* Settings.bundle */; };
+		9D91CC102BB2E7FB00D5F43D /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91CC0F2BB2E7FB00D5F43D /* SettingsBundleHelper.swift */; };
 		9DD5AC6D2BAD77370064B9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */; };
 		9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */; };
 		9DD5AC712BAD77370064B9FC /* EncodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5AC702BAD77370064B9FC /* EncodeViewController.swift */; };
@@ -28,6 +30,8 @@
 		9D91CC042BB2C03B00D5F43D /* dot.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dot.ahap; sourceTree = "<group>"; };
 		9D91CC052BB2C03B00D5F43D /* dash.ahap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dash.ahap; sourceTree = "<group>"; };
 		9D91CC082BB2CB0400D5F43D /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		9D91CC0B2BB2D80500D5F43D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		9D91CC0F2BB2E7FB00D5F43D /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		9DD5AC692BAD77370064B9FC /* UIKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				9D91CC032BB2BE8F00D5F43D /* AHAP */,
 				9DD5AC6C2BAD77370064B9FC /* AppDelegate.swift */,
 				9DD5AC6E2BAD77370064B9FC /* SceneDelegate.swift */,
+				9D91CC0F2BB2E7FB00D5F43D /* SettingsBundleHelper.swift */,
+				9D91CC0B2BB2D80500D5F43D /* Settings.bundle */,
 				9DD5AC702BAD77370064B9FC /* EncodeViewController.swift */,
 				9D884CEC2BB183DB00ABFF6E /* QuickTranslateViewController.swift */,
 				9D2556C12BB1A4CC0019CA32 /* MorseEncoder.swift */,
@@ -163,6 +169,7 @@
 				9DD5AC792BAD77380064B9FC /* Base in Resources */,
 				9D91CC072BB2C03B00D5F43D /* dash.ahap in Resources */,
 				9DD5AC742BAD77370064B9FC /* Base in Resources */,
+				9D91CC0C2BB2D80500D5F43D /* Settings.bundle in Resources */,
 				9D91CC062BB2C03B00D5F43D /* dot.ahap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D91CC102BB2E7FB00D5F43D /* SettingsBundleHelper.swift in Sources */,
 				9DD5AC712BAD77370064B9FC /* EncodeViewController.swift in Sources */,
 				9DD5AC6D2BAD77370064B9FC /* AppDelegate.swift in Sources */,
 				9DD5AC6F2BAD77370064B9FC /* SceneDelegate.swift in Sources */,
