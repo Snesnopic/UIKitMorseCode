@@ -62,7 +62,7 @@ class EncodeViewController: UIViewController {
         let character = morseCodeString.charAt(morseCodeIndex)
         var nextCharacter: Character {
             if morseCodeIndex + 1 >= morseCodeString.count {
-                return " "
+                return character
             }
             else {
                 return morseCodeString.charAt(morseCodeIndex + 1)
