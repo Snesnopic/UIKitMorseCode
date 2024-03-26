@@ -12,9 +12,14 @@ class QuickTranslateViewController: UICollectionViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
     
     var dataSource: DataSource!
-    
+    @IBAction func addTapped() {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+
         // Do any additional setup after loading the view.
         
         self.title = "Quick translate"
@@ -53,7 +58,9 @@ class QuickTranslateViewController: UICollectionViewController {
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
     
+    // function to move elements in the list
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        <#code#>
+        let movedSentence = Sentence.sampleData.remove(at: sourceIndexPath.row)
+        Sentence.sampleData.insert(movedSentence, at: destinationIndexPath.row)
     }
 }
