@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="width" secondItem="kPd-gt-vIp" secondAttribute="height" multiplier="1:1" id="zYT-w7-MMd"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <buttonConfiguration key="configuration" style="filled" title="Play haptics">
                                     <backgroundConfiguration key="background" cornerRadius="1000"/>
                                 </buttonConfiguration>
                                 <connections>
