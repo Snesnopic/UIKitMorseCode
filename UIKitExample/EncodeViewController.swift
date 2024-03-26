@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreHaptics
+import AVFoundation
 
 class EncodeViewController: UIViewController {
-    let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    // A haptic engine manages the connection to the haptic server.
+    var engine: CHHapticEngine?
     
     static let timeUnit = 0.1
     
@@ -21,12 +24,14 @@ class EncodeViewController: UIViewController {
     var vibrationTimer: Timer?
     var morseCodeIndex = 0
     var morseCodeString = ""
+    
     @IBOutlet var morseLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.title = "Encode"
+        createEngine()
     }
     
     @IBAction func textLabelEditingChanged(_ sender: UITextField) {
@@ -63,22 +68,20 @@ class EncodeViewController: UIViewController {
         
         switch character {
         case ".":
-            feedbackGenerator.impactOccurred(intensity: 0.7)
-            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dotDuration, repeats: false) { _ in
+            playHapticsFile(named: "dot")
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dotDuration + (character == nextCharacter ? sameCharacterSeparatorDelay : characterSeparatorDelay), repeats: false) { _ in
                 self.triggerNextVibration()
             }
         case "-":
             for _ in 1...3 {
-                feedbackGenerator.impactOccurred(intensity: 1.0)
-                usleep(UInt32(dashDuration) * 1000)
+                playHapticsFile(named: "dash")
+                usleep(UInt32(dashDuration) * (10000 * UInt32(EncodeViewController.timeUnit)))
             }
-            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dashDuration, repeats: false) { _ in
+            vibrationTimer = Timer.scheduledTimer(withTimeInterval: dashDuration + (character == nextCharacter ? sameCharacterSeparatorDelay : characterSeparatorDelay), repeats: false) { _ in
                 self.triggerNextVibration()
             }
             
-            
         case "/":
-            feedbackGenerator.impactOccurred()
             vibrationTimer = Timer.scheduledTimer(withTimeInterval: wordSeparatorDelay, repeats: false) { _ in
                 self.triggerNextVibration()
             }
@@ -89,12 +92,92 @@ class EncodeViewController: UIViewController {
     }
     
     // Function to stop reading Morse code
-    func stopReadingMorseCode() {
+    @IBAction func stopReading(_ sender: UIButton) {
         vibrationTimer?.invalidate()
     }
     
-    @IBAction func stopReading(_ sender: UIButton) {
-        stopReadingMorseCode()
+    
+    /// - Tag: CreateEngine
+    func createEngine() {
+        // Create and configure a haptic engine.
+        do {
+            // Associate the haptic engine with the default audio session
+            // to ensure the correct behavior when playing audio-based haptics.
+            let audioSession = AVAudioSession.sharedInstance()
+            engine = try CHHapticEngine(audioSession: audioSession)
+        } catch let error {
+            print("Engine Creation Error: \(error)")
+        }
+        
+        guard let engine = engine else {
+            print("Failed to create engine!")
+            return
+        }
+        
+        // The stopped handler alerts you of engine stoppage due to external causes.
+        engine.stoppedHandler = { reason in
+            print("The engine stopped for reason: \(reason.rawValue)")
+            switch reason {
+            case .audioSessionInterrupt:
+                print("Audio session interrupt")
+            case .applicationSuspended:
+                print("Application suspended")
+            case .idleTimeout:
+                print("Idle timeout")
+            case .systemError:
+                print("System error")
+            case .notifyWhenFinished:
+                print("Playback finished")
+            case .gameControllerDisconnect:
+                print("Controller disconnected.")
+            case .engineDestroyed:
+                print("Engine destroyed.")
+            @unknown default:
+                print("Unknown error")
+            }
+        }
+ 
+        // The reset handler provides an opportunity for your app to restart the engine in case of failure.
+        engine.resetHandler = {
+            // Try restarting the engine.
+            print("The engine reset --> Restarting now!")
+            do {
+                try self.engine?.start()
+            } catch {
+                print("Failed to restart the engine: \(error)")
+            }
+        }
     }
+    
+    /// - Tag: PlayAHAP
+    func playHapticsFile(named filename: String) {
+        
+        // If the device doesn't support Core Haptics, abort.
+        if !supportsHaptics {
+            return
+        }
+        
+        // Express the path to the AHAP file before attempting to load it.
+        guard let path = Bundle.main.path(forResource: filename, ofType: "ahap") else {
+            return
+        }
+        
+        do {
+            // Start the engine in case it's idle.
+            try engine?.start()
+            
+            // Tell the engine to play a pattern.
+            try engine?.playPattern(from: URL(fileURLWithPath: path))
+            
+        } catch { // Engine startup errors
+            print("An error occured playing \(filename): \(error).")
+        }
+    }
+    // Maintain a variable to check for Core Haptics compatibility on device.
+    lazy var supportsHaptics: Bool = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.supportsHaptics
+    }()
+    
 }
 
