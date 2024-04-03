@@ -124,7 +124,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Quick Translate" id="Y7E-LH-yGH">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="cfW-Sh-IFy"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cfW-Sh-IFy">
+                            <connections>
+                                <action selector="PlusButtonPressed:" destination="0S7-IR-wHz" id="POk-ni-euO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZG-K9-VKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
