@@ -8,7 +8,7 @@
 import UIKit
 
 class QuickTranslateTableViewController: UITableViewController {
-    
+    let vibrationEngine: VibrationEngine = VibrationEngine.shared
     // reload the data when the view is about to appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,11 +35,7 @@ class QuickTranslateTableViewController: UITableViewController {
     
     // Tell the data source to return the number of rows in a given section of a table view.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return sampleData.count
-        } else {
-            return 0
-        }
+        return sampleData.count
     }
     
     // Tell the data source to return the height of the rows in the table view.
@@ -84,11 +80,13 @@ class QuickTranslateTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Ho selezionato \(sampleData[indexPath.row])")
+        let sentence = sampleData[indexPath.row].sentence
+        print("Sentence to vibrate: \(sentence)")
+        let encodedSentence = MorseEncoder.encode(string: sentence)
+        print("Encoded sentence: \(encodedSentence)")
+        if !vibrationEngine.isVibrating() {
+            vibrationEngine.readMorseCode(morseCode: encodedSentence)
+        }
     }
-    
-    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        print("Ho selezionato \(sampleData[indexPath.row])")
-    }
-    
+
 }
