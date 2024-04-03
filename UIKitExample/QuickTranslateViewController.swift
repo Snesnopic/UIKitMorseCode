@@ -29,6 +29,11 @@ class QuickTranslateViewController: UICollectionViewController {
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = sentence.sentence
             cell.contentConfiguration = contentConfiguration
+            // accessories for moving and deleting during editing mode (manual because this is not tableview but collectionview)
+            cell.accessories = [
+                .delete(),
+                .reorder()
+            ]
         }
         
         // code to initialize the array to the data
@@ -61,8 +66,32 @@ class QuickTranslateViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedSentence = sampleData.remove(at: sourceIndexPath.row)
         sampleData.insert(movedSentence, at: destinationIndexPath.row)
+        collectionView.reloadData()
     }
     
-  
+    // this just says that every item is movable
+    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // even though it's called canEdit, this is to enable removal of every item
+    override func collectionView(_ collectionView: UICollectionView, canEditItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+//    
+//    // Handle deletion of items
+//    func collectionView(_ collectionView: UICollectionView, commit editingStyle: UICollectionViewCell.EditingStyle, forItemAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            sampleData.remove(at: indexPath.item)
+//            collectionView.deleteItems(at: [indexPath])
+//            // Update your data model accordingly
+//        }
+//    }
+//    
+    // function to execute when the plus button is pressed
+    @IBAction func PlusButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
     
 }
