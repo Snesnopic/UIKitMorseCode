@@ -42,6 +42,7 @@ class VibrationEngine {
     func triggerNextVibration() {
         guard morseCodeIndex < morseCodeString.count else {
             // End of Morse code string
+            vibrationTimer = nil
             return
         }
         
@@ -84,6 +85,7 @@ class VibrationEngine {
     // Function to stop reading Morse code
     func stopReading() {
         vibrationTimer?.invalidate()
+        vibrationTimer = nil
     }
     
     
@@ -168,5 +170,7 @@ class VibrationEngine {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.supportsHaptics
     }()
-    
+    func isVibrating() -> Bool {
+        return vibrationTimer != nil
+    }
 }
